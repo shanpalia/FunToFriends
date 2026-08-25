@@ -1,18 +1,27 @@
 workflows:
   android-workflow:
-    name: Fun To Friends Android
+    name: Fun To Friends Signed Android
     max_build_duration: 30
     instance_type: mac_mini_m2
 
     environment:
+      android_signing:
+        - paliaapk-release
       java: 17
 
     scripts:
-      - name: Build debug APK
+      - name: Build signed release APK
         script: |
           curl -L -o /tmp/gradle.zip https://services.gradle.org/distributions/gradle-8.7-bin.zip
           unzip -q /tmp/gradle.zip -d /tmp
-          /tmp/gradle-8.7/bin/gradle --no-daemon clean assembleDebug
+          /tmp/gradle-8.7/bin/gradle --no-daemon clean assembleRelease
+
+      - name: Verify APK signature
+        script: |
+          APK="app/build/outputs/apk/release/app-release.apk"
+          APKSIGNER="$(find "$ANDROID_HOME/build-tools" -name apksigner | sort -V | tail -1)"
+          echo "Verifying: $APK"
+          "$APKSIGNER" verify --verbose "$APK"
 
     artifacts:
-      - app/build/outputs/apk/debug/app-debug.apk
+      - app/build/outputs/apk/release/app-release.apk

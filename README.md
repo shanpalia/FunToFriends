@@ -47,3 +47,10 @@ This workflow uses `mac_mini_m2`, which is available on the Codemagic individual
 ### Resource linking fix
 The app now uses the platform Android Material Light theme instead of the removed
 AppCompat theme, so no AppCompat dependency is required.
+
+
+### Signed release build
+This configuration references the existing CodeMagic Android keystore
+`paliaapk-release`, signs the release APK through Gradle using Codemagic's
+`CM_KEYSTORE_*` variables, and runs `apksigner verify --verbose` before
+publishing the APK artifact.
