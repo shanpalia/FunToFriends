@@ -54,3 +54,9 @@ This configuration references the existing CodeMagic Android keystore
 `paliaapk-release`, signs the release APK through Gradle using Codemagic's
 `CM_KEYSTORE_*` variables, and runs `apksigner verify --verbose` before
 publishing the APK artifact.
+
+
+### Mobile fit
+WebView is configured for mobile-width rendering, 100% text zoom,
+no horizontal scrollbar, and in-app navigation without handing links
+to an external browser.

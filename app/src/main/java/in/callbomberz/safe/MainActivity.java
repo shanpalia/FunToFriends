@@ -27,7 +27,10 @@ public class MainActivity extends Activity {
         webView.getSettings().setBuiltInZoomControls(false);
         webView.getSettings().setDisplayZoomControls(false);
         webView.getSettings().setLoadWithOverviewMode(false);
-        webView.getSettings().setUseWideViewPort(true);
+        webView.getSettings().setUseWideViewPort(false);
+        webView.getSettings().setTextZoom(100);
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setVerticalScrollBarEnabled(true);
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
@@ -39,6 +42,7 @@ public class MainActivity extends Activity {
 
                     String lower = url.toLowerCase();
 
+                    // Keep website navigation inside the app.
                     if (lower.contains("call-bomber") ||
                         lower.contains("callbomber") ||
                         lower.contains("sms-bomber") ||
@@ -48,8 +52,10 @@ public class MainActivity extends Activity {
                     }
 
                     view.loadUrl(url);
+                    return true;
                 }
 
+                // Never hand links to Chrome/external browser.
                 return true;
             }
         });
