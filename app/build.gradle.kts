@@ -15,6 +15,9 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+        }
         release {
             isMinifyEnabled = false
         }
@@ -22,7 +25,4 @@ android {
 }
 
 dependencies {
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.activity:activity:1.9.3")
-    implementation("androidx.webkit:webkit:1.12.1")
 }

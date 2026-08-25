@@ -32,3 +32,9 @@ Select the repository in CodeMagic and start the Android workflow.
 
 ## App Icon
 The custom Fun To Friends launcher icon is included under the Android mipmap resources and is referenced by the manifest.
+
+
+### Build fix
+This version removes AndroidX/AppCompat/WebKit Gradle dependencies and uses the
+native Android WebView API, avoiding the dependency-resolution failure in the
+previous build.
