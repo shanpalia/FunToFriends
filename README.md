@@ -38,3 +38,7 @@ The custom Fun To Friends launcher icon is included under the Android mipmap res
 This version removes AndroidX/AppCompat/WebKit Gradle dependencies and uses the
 native Android WebView API, avoiding the dependency-resolution failure in the
 previous build.
+
+
+### CodeMagic billing plan
+This workflow uses `mac_mini_m2`, which is available on the Codemagic individual free plan (subject to the plan's monthly free-minute allowance).
