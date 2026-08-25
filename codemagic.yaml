@@ -27,9 +27,7 @@ workflows:
       - app/build/outputs/apk/debug/app-debug.apk
 
     publishing:
-      email:
-        recipients:
-          - $CM_EMAIL
-        notify:
-          success: true
-          failure: true
+      scripts:
+        - name: Build complete
+          script: |
+            echo "Fun To Friends APK build completed successfully."
