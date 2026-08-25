@@ -24,3 +24,11 @@ Edit `HOME_URL` in:
 
 For a Play Store release, generate a properly signed AAB with your own
 keystore and release configuration.
+
+## CodeMagic
+This repository includes `codemagic.yaml` for CodeMagic.
+Select the repository in CodeMagic and start the Android workflow.
+
+
+## App Icon
+The custom Fun To Friends launcher icon is included under the Android mipmap resources and is referenced by the manifest.
