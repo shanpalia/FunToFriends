@@ -42,3 +42,8 @@ previous build.
 
 ### CodeMagic billing plan
 This workflow uses `mac_mini_m2`, which is available on the Codemagic individual free plan (subject to the plan's monthly free-minute allowance).
+
+
+### Resource linking fix
+The app now uses the platform Android Material Light theme instead of the removed
+AppCompat theme, so no AppCompat dependency is required.
